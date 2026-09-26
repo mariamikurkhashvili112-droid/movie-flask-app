@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <title>ფილმების სია</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>ფილმების სია</h1>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>დასახელება</th>
+                <th>წელი</th>
+                <th>რეიტინგი</th>
+                <th>ჟანრი</th>
+                <th>ხანგრძლივობა (წთ)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movie in movies %}
+                {% if movie.rating >= 9 %}
+                    {% set row_class = "green-text" %}
+                {% elif movie.rating >= 8.5 %}
+                    {% set row_class = "orange-text" %}
+                {% else %}
+                    {% set row_class = "gray-text" %}
+                {% endif %}
+                <tr class="{{ row_class }}">
+                    <td>{{ movie.title }}</td>
+                    <td>{{ movie.year }}</td>
+                    <td>{{ movie.rating }}</td>
+                    <td>{{ movie.genre }}</td>
+                    <td>{{ movie.duration }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>სულ ფილმების რაოდენობა: {{ total_count }}</h3>
+    <h3>საშუალო ხანგრძლივობა: {{ avg_duration }} წუთი</h3>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #eee;
+}
+
+.green-text {
+    color: green;
+    font-weight: bold;
+}
+
+.orange-text {
+    color: orange;
+    font-weight: bold;
+}
+
+.gray-text {
+    color: gray;
+}
